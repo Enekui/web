@@ -4,7 +4,6 @@ metadata:
   labels:
     run: nginx-bio-prod
   name: nginx-bio-prod
-  namespace: default
 spec:
   replicas: 3
   revisionHistoryLimit: 10
@@ -22,7 +21,7 @@ spec:
         run: nginx-bio-prod
     spec:
       containers:
-      - image: enekui/nginx-bio-prod
+      - image: enekui/nginx-bio-prod-new
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
