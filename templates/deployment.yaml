@@ -1,15 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: biografy
   labels:
-    run: nginx-bio-prod
-  name: nginx-bio-prod
+    run: biografy
+  name: biografy
 spec:
   replicas: 3
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      run: nginx-bio-prod
+      run: biografy
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,7 +19,7 @@ spec:
   template:
     metadata:
       labels:
-        run: nginx-bio-prod
+        run: biografy
     spec:
       containers:
       - image: enekui/nginx-bio-prod-new
@@ -32,7 +33,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-        name: nginx-bio-prod
+        name: biografy
         ports:
         - containerPort: 80
           protocol: TCP

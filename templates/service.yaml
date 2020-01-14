@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-bio-prod
+  namespace: biografy
+  name: biografy
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    run: nginx-bio-prod
-  sessionAffinity: None
+    run: biografy
   type: ClusterIP

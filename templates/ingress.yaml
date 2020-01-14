@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: biografy
+  name: biografy-ingress
+spec:
+  rules:
+  - host: www.adiannyramirez.com
+    http:
+      paths:
+      - backend:
+          serviceName: biografy
+          servicePort: 80
+        path: /
+  - host: adiannyramirez.com
+    http:
+      paths:
+      - backend:
+          serviceName: biografy
+          servicePort: 80
+        path: /
+  tls:
+    - hosts:
+      - www.adiannyramirez.com
+      - adiannyramirez.com
+      secretName: tls
